@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dh/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"  href="static/css/style.css">
+    <link rel="stylesheet" type="text/css"  href="static/css/main.css">
+    
+
+</head>
+<body>
+
+<header>
+  <h2 class="logo">HMS</h2>
+    <div class="container">
+      
+
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+         
+        </ul>
+      </nav>
+    </div>
+  </header>
+ <form method="POST" class="box" action="" id="form" onsubmit="return validated()">
+
+        <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form name="login" action="" method="post" novalidate>
+                <fieldset class="form-group">
+                    <legend>{{title}}</legend>
+
+
+                    <p>
+
+  <form method="POST" class="box" action="" id="form">
+    
+    <h1>Login</h1>
+    <input type="text" id="Username" name="Username" placeholder="Username" required>
+    <input type="password" id="password" name="password" placeholder="password" required>
+    <button type="submit" name="action" value="login">LOGIN</button>
+
+
+
+  </form>
+
+
+<p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{category}}">
+                <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</p>
+
+  <script type=text/javascript src="{{
+  url_for('static', filename='script.js') }}"></script>
+
+
+ <!--  <script type="text/javascript">
+    function check(form)
+    {
+      if(form..Username.value=="rohan" && form.password.value==2125)
+      {
+        window.open('')
+      }
+      else
+      {
+        alert("Username or password is incorrect")
+      }
+    }
+  </script> -->
+
+</body>
+</html>
+
+
+
+
+

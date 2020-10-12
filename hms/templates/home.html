@@ -1,0 +1,194 @@
+<html>
+<head>
+    <title>Home Page</title>
+	 <link rel = "icon" href ="static/images/logo.png" type = "image/x-icon"> 
+	<link rel="stylesheet" type="text/css" href="static/css/style-main.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  
+  <style>
+
+  html{
+  scroll-behavior:smooth;
+  }
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+ 
+
+   ul.b {
+  list-style-type: square;
+   }
+
+  </style>
+	
+</head>
+<body>
+	<!--Header Section-->
+		<div class="main">
+			<nav>
+				<div class="logo">
+				<br>
+				<a class="navbar-brand" href="#" >
+				<img src="static/images/logo.png" class="rounded-circle" style="background-color:#f6f6f6;height:35%;display:inline-block;"><span style="color:#01d7a7;font-size:25px">JANASEVA Hospital Management System</span>
+				</a>
+					
+				</div>
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#aboutus">ABOUT US</a></li>
+					<li><a href="#contact">CONTACT US</a></li>
+					<li><a href="/login">LOGIN</a></li>
+				</ul>
+			</nav>
+		</div>
+	<!--Header Section Ends Here-->	
+{% include 'includes/_messages.html' %}		
+<br>
+  
+		
+		
+		<!--Image Slider Section starts-->
+		<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/images/slider-image1.jpg" alt="Los Angeles" width="720" height="350">
+      <div class="carousel-caption">
+        
+		<h4 style="color:#0e8429"><b><i>"DR." isn't just my prefix it's my super power</i></b></h4>
+        
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="static/images/slider-image2.jpeg" alt="Chicago" width="700" height="300">
+      <div class="carousel-caption">
+        
+        <h4 style="color:#0e8429"><b><i>Health is not valued till the sickness comes</i></b></h4>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="static/images/slider-image3.jpeg" alt="New York" width="700" height="300">
+      <div class="carousel-caption">
+		<h4 style="color:#0e8429"><b><i>it is health that is real wealth and not pieces of gold and silver</i></b></h4>
+        
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+   <!--Image Slider Section Ends--> 
+	
+<br>
+<br>	
+	
+
+<!-- About Us Section Starts here-->
+<div class="slider" id="aboutus" > <!--style="background-image:url(static/images/aboutus2.jpg)","width:100%"-->
+        <img src="static/images/abtus.jpg" alt="New York" width="100%" height="500">
+     	<div class="title" style="background:rgba(0,0,0,0.1)">
+     		<h4>Why US</span>?</h4>
+     		<p> We are available 24*7 in your service.Patients are our utmost priority.
+		</p>
+		<p>OUR FEATURES</p>
+		<ul class="b">
+  <li>TOP SPECIALISTS</li>
+  <li>AFFORDABLE PRICE</li>
+  <li>OWN PHARMACY STORE</li>
+  <li>EMERGENCY TREATMENT</li>
+  <li>COORDINATED CARE</li>
+</ul>
+     		<a href="#" class="btn">Read More</a>
+     		  	
+     	</div>
+     </div>
+<!--About Us Section Ends here-->	 
+	 
+<br>
+<br>
+
+<!-- Contact Section Starts Here-->
+
+     <div id="contact" class=" bg-grey">
+	 <br>
+  <h4 class="text-center" style="color:#000">CONTACT US</h4>
+  <br>
+  <div class="row">
+  <div class="col-sm-1">
+  </div>
+    <div class="col-sm-4" style="color:#000">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span  class="fa fa-map-marker"></span>&nbsp;&nbsp;&nbsp;India</p>
+      <p><span class="fa fa-phone"></span> +91 7722772277</p>
+      <p><span class="fa fa-envelope"></span><a href="mailto:admin@hms.com" style="color:#000">&nbsp;&nbsp;admin@hms.com</a></p>
+    </div>
+	
+    <div class="col-sm-7 slideanim">
+	<form action="/contactus" method="post">
+      <div class="row">
+	  
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comment" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-2 form-group">
+         <input type="submit" class="form-control " value="submit" style="background-color:#01d7a7;color:#fff">
+        </div>
+      </div>
+	 </form>
+	  <br>
+    </div>
+	
+	 
+  </div>
+</div>
+<!-- Contact Section Ends Here-->
+
+
+
+
+
+<!-- Footer Section Starts Here-->
+<footer class="page-footer font-small bg-dark">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="color:#fff">© 2020 Copyright:
+    <a href="home.html">JANSEVA MANDAL</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer Section Ends Here--> 
+
+
+
+
+</body>
+</html>
+	
+	
+	

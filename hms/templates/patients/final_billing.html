@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <title>Flask Intro - final_billing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    	/*
+    	.navbar
+    	{
+    		background-color : lightblue;
+        padding:20px;
+        border : 1px solid black;
+        margin:0;
+        width:100%;
+    	}
+    	*/
+        .navbar
+	    {
+	    	background-color : rgba(153, 221, 255,0.8);/*lightblue;*/
+	        padding: 12px;
+	        border : 1px solid black;
+	        margin:0;
+	        width:100%;
+	    }
+
+      body
+      {
+        margin: 0;
+      }
+
+      td
+      {
+        background-color: white;
+        padding: 5px 5px 5px 5px;
+      }
+
+      /*
+      .table01
+      {
+        display:block;
+      }
+      */
+
+      table.table01
+      {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .table01 thead,th
+      {
+        /*border: 2px solid black;*/
+        background-color: black;
+        color: white;    
+        padding: 8px 8px 8px 8px;    
+      }
+
+      button
+      {
+        
+        background-color: black;
+        color: white;
+        height: 50px;
+        border-radius: 12px;
+        padding: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div class="navbar">
+      	<center>
+
+      		<h2 style="margin-top:2px;">Janaseva Hospital Management Sysytem</h2>
+
+      		<select>Patient
+            	<option>Patient</option>
+          	</select>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;
+            
+      		<select>Pharmacy
+            	<option>Pharmacy</option>
+          	</select>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;
+
+      		<select>Diagnostics
+            <option>Diagnostics</option>
+          </select>
+
+        </center><br>
+      </div>
+
+      <form name="form1" method="post">
+
+      <!-- <div style="background-color: #0099cc;padding: 10px; width: 100%;"> -->
+      <div style="background-color: #0099cc; padding: 12px; width: 100%; margin: 0;">
+        <center>
+
+          <!--<b>Pharmacy</b>
+          <br>-->
+
+          <b style="border-bottom-style: solid; border-color: rgba(255,255,255,0.8);padding: 5px;">Pharmacy</b><br><br>
+
+          <!-- <table class="table01" rules="all" style="width:100%;" align="center"> -->
+          <table class="table01" rules="all" style="width:60%;">
+            <thead rowspan="2">
+              <tr>
+                <th rowspan="2"><button type="submit" name="action" value="search"><i class="fa fa-search"></i></button>&nbsp; <input type="text" name="pid" id="pid" placeholder="enter patient id" value="{{value[0]}}">&nbsp; Patient Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>DOJ</th>
+                <th>Date of discharge</th>
+                <th>Type of Room</th>
+              </tr>
+            </thead>
+            <tbody>
+            	
+            	<tr>
+            		{% for i in value %}
+            		<td>{{i}}</td>
+            		{% endfor %}
+            	</tr>
+
+                
+            </tbody>
+          </table>
+
+          <div style="margin-left: 55%; padding:20px;">
+          	<b>No. of days</b> &nbsp;&nbsp;<label>7</label>&nbsp;&nbsp;&nbsp;&nbsp; <b>Bill for Room</b> &nbsp;&nbsp; <label>Rs.56000</label>
+          </div>
+
+          <br><hr>
+
+          <br>
+          <b style="border-bottom-style: solid; border-color: rgba(255,255,255,0.8);padding: 5px;">Pharmacy Charges</b><br><br>
+
+          <!--<br><br>
+          <b>Pharmacy Charges</b>
+          <br>-->
+
+          <table class="table01" rules="all" style="width:60%;" align="center">
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+            	{% for i in val_pc %}
+            	<tr>
+            		<td>{{i[0]}}</td>
+            		<td>{{i[1]}}</td>
+            		<td>{{i[2]}}</td>
+            		<td>{{i[3]}}</td>            		
+            	</tr>
+            	{% endfor %}
+               <tr>
+                  <td>Acebutolol</td>
+                  <td>10</td>
+                  <td>Rs.55</td>
+                  <td>Rs.550</td>
+               </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-left: 38%; padding:20px;">
+          	<b>Bill for Pharmacy</b> &nbsp;&nbsp;<label>Rs. {{val_total_bp}}</label>
+          </div>
+
+          <br><hr>
+
+          <br>
+          <b style="border-bottom-style: solid; border-color: rgba(255,255,255,0.8);padding: 5px;">Diagnostics Charges</b><br><br>
+          
+          <!--<br><br>
+          <b>Diagnostics Charges</b>
+          <br>-->
+          
+          <table class="table01" rules="all" style="width:32%;" align="center">
+            <thead>
+              <tr>
+                <th>Name of the test</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+            	{% for i in val_dc %}
+                <tr>
+            		<td>{{i[0]}}</td>
+            		<td>{{i[1]}}</td>
+            	</tr>
+            	{% endfor %}
+            </tbody>
+          </table>
+
+          <div style="text-align: center; padding:20px;">
+          	<b>Bill for Diagnostics</b> &nbsp;&nbsp;<label>Rs. {{val_total_bd}}</label>
+          </div>
+
+          <br><br>
+          <button value="Confirm">Confirm</button> &nbsp;&nbsp;&nbsp;&nbsp; <b>Grant Total</b> &nbsp;&nbsp;<label>Rs. {{val_grand}}</label>
+          
+        </center><br>
+      </div>
+
+  	  </form>
+      
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+
+
+
